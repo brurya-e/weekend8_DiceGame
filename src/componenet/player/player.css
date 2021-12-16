@@ -1,37 +1,43 @@
-.player {
-    font-family: "Syne Mono", monospace;
-}
 
 .container {
-    margin: 5px;
-    padding: 15px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 3%;
+
     text-align: center;
     background: #eeebdd;
     display: flex;
     flex-direction: column;
+    justify-items: center;
+    justify-content: space-between;
+    width: 50%;
+    height: 100%;
+}
+.scores{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-items:center;
+    justify-content:space-between;
+
 }
 .active {
     background-color: #c5c1ad;
 }
 .count {
     border-radius: 50%;
-    padding: 5px 20px;
-    margin: 50px auto;
+    width: 100%;
+    height: 25%;
+   
 }
 
 .total {
-    border: 1px solid #810000;
-    background: #630000;
+    border: 1px solid color #580c48;
+    background: #580c48;
     color: #eeebdd;
-    padding: 5px;
-    margin: 5px;
-    padding: 5px;
     border-radius: 20px;
-}
+    width: 100%;
+    height: 30%;
 
-@media (max-width: 830px) {
-    .container {
-        margin: 2px;
-        padding: 5px;
-    }
 }

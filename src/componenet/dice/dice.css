@@ -1,24 +1,16 @@
 .dice {
-    background: black;
-    margin: 5px;
+    background: #580c48;
+    width: 50%;
+    height: 90%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     width: max-content;
-    padding: 5px;
     border-radius: 40px;
-  }
-  
-  img {
-    margin: 7px;
-    width: 80px;
-  }
-  
-  @media (max-width: 830px) {
-    img {
-      margin: 3px;
-      width: 40px;
-    }
-  }
-  
+}
+
+img {
+    width: 45%;
+    height: 80%;
+}

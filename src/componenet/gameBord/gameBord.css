@@ -1,0 +1,10 @@
+.players {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 70vh;
+  }
+  
+  .players > div {
+    width: 50vw;
+  }

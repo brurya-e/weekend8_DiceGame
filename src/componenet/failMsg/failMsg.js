@@ -9,7 +9,7 @@ function FailMsg(props) {
     let v = '';
     (props.failMsgVisibility ? v = 'visible' : v ='hidden');
   return (
-    <div className="hidden-message" style={{ visibility: v }}>
+    <div className="fail-msg" style={{ visibility: v }}>
       <img
         className="gif"
         alt = ''

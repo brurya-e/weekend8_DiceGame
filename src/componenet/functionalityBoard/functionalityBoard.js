@@ -3,7 +3,7 @@ import './functionalityBoard.css';
 import Dice from '../dice/dice'
 import Button from '../btn/btn'
 
-import dice1 from "../../img/dice1.png";
+import dice1 from "../../img/1.png";
 import dice2 from "../../img/2.png";
 import dice3 from "../../img/3.png";
 import dice4 from "../../img/4.png";

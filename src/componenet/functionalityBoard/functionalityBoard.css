@@ -2,34 +2,22 @@
     display: flex;
     flex-direction: column;
     background: #eeebdd;
-  }
-  
-  .main-container {
+    width: 100vw;
+    height: 30vh;
+}
+
+.main-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-  }
-  
-  .adjust-win {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  input {
-    width: 50px;
-    height: 20px;
-    margin: auto;
-    text-align: center;
-    font-family: "Cormorant Unicase", serif;
-    font-weight: 900;
-    font-size: larger;
-    margin-top: 2px;
-  }
-  
-  .foot-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  
+    width: 60%;
+    height: 50%;
+    margin-left: 20%;
+
+}
+
+.foot-container {
+    margin-left: 47%;
+    
+}

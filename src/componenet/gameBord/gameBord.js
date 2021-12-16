@@ -3,6 +3,7 @@ import FunctionalityBoard from '../functionalityBoard/functionalityBoard';
 import Player from '../player/player';
 import WinnMsg from '../wimMsg/winMsg';
 import FailMsg from '../failMsg/failMsg';
+import './gameBord.css'
 
 class GameBord extends React.Component {
 
@@ -168,7 +169,7 @@ class GameBord extends React.Component {
     render() {
         return (
             <div>
-                <div className="players">
+                
                     <FailMsg
                         failMsgVisibility={this.state.failSix}
                     />
@@ -177,6 +178,7 @@ class GameBord extends React.Component {
                         winner={this.state.playerTurn}
                         winMsgVisibility={this.state.winner}
                     />
+                    <div className="players">
                     <Player
                         player="1"
                         count={this.state.players[0].currentScore}
