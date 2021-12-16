@@ -1,6 +1,7 @@
 import React from "react";
 import FunctionalityBoard from '../functionalityBoard/functionalityBoard';
 import Player from '../player/player';
+import WinnMsg from '../wimMsg/winMsg'
 // import WinningMessage from "./components/WinningMessage/WinningMessage.Component";
 // import HiddenMessage from "./components/HiddenMessage/HiddenMessage.Component";
 
@@ -99,15 +100,13 @@ class GameBord extends React.Component {
         //check win
         await this.checkIfWinner();
         //change player 
-        this.switchTurn();
+         this.switchTurn();//מגיע לכאן לפני הרינדור של הזוכה ולכן מציג זוכה שגוי גם הAWAIT לא עזר
     };
 
     checkIfWinner = () => {
         if (this.state.players[this.state.playerTurn - 1].totalScore >= this.state.pointToWin) {
             this.setState({ winner: true });
-            //showe winner div 
-            console.log('winner', this.state.playerTurn)
-            //newGame?!
+            //showe winner div  becouse render +//newGame?!
         }
     };
 
@@ -142,12 +141,12 @@ class GameBord extends React.Component {
             mainText="you got 6 * 6!"
             secondaryText="you lost all your current amount and your turn."
             mesVisibility={this.state.isSixSix[0]}
-          />
-          <WinningMessage
-            newGameFunction={this.newGame}
-            winner={this.state.winner[0]}
-            winMesVisibility={this.state.winner[1]}
           /> */}
+                    <WinnMsg
+                        newGame={this.newGame}
+                        winner={this.state.playerTurn}
+                        winMsgVisibility={this.state.winner}
+                    />
                     <Player
                         player="1"
                         count={this.state.players[0].currentScore}
