@@ -30,14 +30,10 @@ function FunctionalityBoard(props){
         </div>
         <div className="foot-container">
           <Button
-            i="fas fa-plus fa-2x"
+            i="fas fa-redo-alt"
             buttonText="New Game"
             onClickFunc={props.newGame}
           />
-          {/* <div className="adjust-win">
-            <label>Adjust Winning Score:</label>
-            <input type="text" onChange={props.onChangefunc}></input>
-          </div> */}
         </div>
       </div>
     );

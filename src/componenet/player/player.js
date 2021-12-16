@@ -3,7 +3,7 @@ import "./player.css";
 
 function Player(props) {
     let className = '';
-    (props.state)+1 == props.player ? className = 'active' : className = '';
+    props.state === props.player ? className = 'active' : className = '';
     return (
         <div className={`player container ${className}`} >
             <div className="player">

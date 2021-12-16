@@ -4,15 +4,12 @@ import Player from '../player/player';
 // import WinningMessage from "./components/WinningMessage/WinningMessage.Component";
 // import HiddenMessage from "./components/HiddenMessage/HiddenMessage.Component";
 
-let activePlayerBackground = "#c5c1ad";
-let nonActiveBackground = "#eeebdd";
-
 class GameBord extends React.Component {
 
     state = {
-        pointToWin: 100,
+        pointToWin: 20,
         dices: [6, 6],
-        playerTurn: 0,
+        playerTurn: '1',
         winner: false,
         players: [
             {
@@ -30,7 +27,7 @@ class GameBord extends React.Component {
     // isSixSix: ["hidden", false], // show you got 6 6 message, and disable=true for roll dice while 6 6 message
 
     updateCurrentPlayerAmount = (value) => {
-        if (this.state.playerTurn == 0) {
+        if (this.state.playerTurn === '1') {
             this.setState({
                 players: [
                     {
@@ -67,14 +64,14 @@ class GameBord extends React.Component {
     };
 
     switchTurn = () => {
-        if (this.state.playerTurn == 0)
-            this.setState({ playerTurn: 1 });
+        if (this.state.playerTurn === '1')
+            this.setState({ playerTurn: '2' });
         else
-            this.setState({ playerTurn: 0 });
+            this.setState({ playerTurn: '1' });
     }
 
     addToTotal = () => {
-        if (this.state.playerTurn == 0) {
+        if (this.state.playerTurn === '1') {
             this.setState({
                 players: [
                     {
@@ -94,8 +91,6 @@ class GameBord extends React.Component {
                     }]
             });
         }
-        console.log('add to total', this.state.players)
-
     }
 
     playerHold = async () => { //לא עובד נכון בלי await למרות שכתוב שהוא מיותר
@@ -108,9 +103,8 @@ class GameBord extends React.Component {
     };
 
     checkIfWinner = () => {
-        console.log('checkIfWinner', this.state.players[this.state.playerTurn].totalScore)
-        if (this.state.players[this.state.playerTurn].totalScore >= this.state.pointToWin) {
-            this.setState({ winner: this.state.playerTurn });
+        if (this.state.players[this.state.playerTurn - 1].totalScore >= this.state.pointToWin) {
+            this.setState({ winner: true });
             //showe winner div 
             console.log('winner', this.state.playerTurn)
             //newGame?!
@@ -120,20 +114,20 @@ class GameBord extends React.Component {
     newGame = () => { // resetting details
         this.setState({
             pointToWin: 100,
-        dices: [6, 6],
-        playerTurn: 0,
-        winner: false,
-        players: [
-            {
-                currentScore: 0,
-                totalScore: 0
-            },
-            {
-                currentScore: 0,
-                totalScore: 0
-            }
-        ]
-    })
+            dices: [6, 6],
+            playerTurn: '1',
+            winner: false,
+            players: [
+                {
+                    currentScore: 0,
+                    totalScore: 0
+                },
+                {
+                    currentScore: 0,
+                    totalScore: 0
+                }
+            ]
+        })
     }
 
     //   adjustAmountToWin = (e) => {
