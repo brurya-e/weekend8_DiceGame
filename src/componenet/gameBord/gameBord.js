@@ -1,9 +1,8 @@
 import React from "react";
 import FunctionalityBoard from '../functionalityBoard/functionalityBoard';
 import Player from '../player/player';
-import WinnMsg from '../wimMsg/winMsg'
-// import WinningMessage from "./components/WinningMessage/WinningMessage.Component";
-// import HiddenMessage from "./components/HiddenMessage/HiddenMessage.Component";
+import WinnMsg from '../wimMsg/winMsg';
+import FailMsg from '../failMsg/failMsg';
 
 class GameBord extends React.Component {
 
@@ -12,6 +11,7 @@ class GameBord extends React.Component {
         dices: [6, 6],
         playerTurn: '1',
         winner: false,
+        failSix: false,
         players: [
             {
                 currentScore: 0,
@@ -23,9 +23,6 @@ class GameBord extends React.Component {
             }
         ]
     };
-
-    // winner: ["", "hidden"], // hidden for still no winner -> when winner change to visible for winner message
-    // isSixSix: ["hidden", false], // show you got 6 6 message, and disable=true for roll dice while 6 6 message
 
     updateCurrentPlayerAmount = (value) => {
         if (this.state.playerTurn === '1') {
@@ -50,6 +47,29 @@ class GameBord extends React.Component {
         }
     }
 
+    resetScore = () => {
+        if (this.state.playerTurn === '1') {
+            this.setState({
+                players: [
+                    {
+                        currentScore: 0,
+                        totalScore: this.state.players[0].totalScore
+                    },
+                    this.state.players[1]]
+            });
+        }
+        else {
+            this.setState({
+                players: [
+                    this.state.players[0],
+                    {
+                        currentScore: 0,
+                        totalScore: this.state.players[1].totalScore
+                    }]
+            });
+        }
+    }
+
     throwDice = () => {
         //thrw twice
         let firstDice = Math.floor(Math.random() * 6 + 1);
@@ -58,10 +78,21 @@ class GameBord extends React.Component {
         this.setState({
             dices: [firstDice, secondDice],
         });
-        //update player score
-        this.updateCurrentPlayerAmount(firstDice + secondDice);
-        //check win before hold?
-        // this.checkIfWinner(this.state.pointToWin);
+        //check if dices=6
+        if ((firstDice === secondDice) && (secondDice === 6)) {
+            //msg
+            this.setState({ failSix: true });
+            //clear
+            this.resetScore();
+            //turn
+            this.switchTurn();
+            //remove msg
+            setTimeout(() => { this.setState({ failSix: false }); }, 4000);
+        }
+        else {
+            //update player score
+            this.updateCurrentPlayerAmount(firstDice + secondDice);
+        }
     };
 
     switchTurn = () => {
@@ -100,7 +131,7 @@ class GameBord extends React.Component {
         //check win
         await this.checkIfWinner();
         //change player 
-         this.switchTurn();//מגיע לכאן לפני הרינדור של הזוכה ולכן מציג זוכה שגוי גם הAWAIT לא עזר
+        this.switchTurn();//מגיע לכאן לפני הרינדור של הזוכה ולכן מציג זוכה שגוי גם הAWAIT לא עזר
     };
 
     checkIfWinner = () => {
@@ -116,6 +147,7 @@ class GameBord extends React.Component {
             dices: [6, 6],
             playerTurn: '1',
             winner: false,
+            failSix: false,
             players: [
                 {
                     currentScore: 0,
@@ -137,11 +169,9 @@ class GameBord extends React.Component {
         return (
             <div>
                 <div className="players">
-                    {/* <HiddenMessage
-            mainText="you got 6 * 6!"
-            secondaryText="you lost all your current amount and your turn."
-            mesVisibility={this.state.isSixSix[0]}
-          /> */}
+                    <FailMsg
+                        failMsgVisibility={this.state.failSix}
+                    />
                     <WinnMsg
                         newGame={this.newGame}
                         winner={this.state.playerTurn}
