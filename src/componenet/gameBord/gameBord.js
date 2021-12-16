@@ -8,7 +8,7 @@ import WinnMsg from '../wimMsg/winMsg'
 class GameBord extends React.Component {
 
     state = {
-        pointToWin: 20,
+        pointToWin: 100,
         dices: [6, 6],
         playerTurn: '1',
         winner: false,
