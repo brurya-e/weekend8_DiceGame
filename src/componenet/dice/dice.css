@@ -1,0 +1,24 @@
+.dice {
+    background: black;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    padding: 5px;
+    border-radius: 40px;
+  }
+  
+  img {
+    margin: 7px;
+    width: 80px;
+  }
+  
+  @media (max-width: 830px) {
+    img {
+      margin: 3px;
+      width: 40px;
+    }
+  }
+  

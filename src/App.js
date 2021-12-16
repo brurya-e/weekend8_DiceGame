@@ -1,76 +1,71 @@
 import React from "react";
-import InputText from "./component/inputText/inputText";
-import Select from './component/select/select'
-import TextErea from './component/textErea/textErea'
+import Dice from "./componenet/dice/dice";
+import Btn from './componenet/btn/btn'
+import GameBord from './componenet/gameBord/gameBord'
 
-const fName = {
-    name: "fName",
-    text: "enter your first name"
-};
-const lName = {
-    name: "lName",
-    text: "enter your last name"
-};
-const fText = {
-    row: 5,
-    col: 40,
-    name: "fText",
-    text: "Free Text"
-}
+// this.setState(
+//     {
+//       todos: [
+//         ...this.state.todos,
+//         {
+//           id: new Date().valueOf(),
+//           mission,
+//         },
+//       ],
+//     },
+//     () => {
+//       window.localStorage.setItem('todos', JSON.stringify(this.state.todos));
+//     }
+//   );
 
 class App extends React.Component {
 
-    state = {
-        pointToWin: 20,
-        dices: [null, null],
-        playerTurn: 0,
-        winner: false,
+    // state = {
+    //     pointToWin: 20,
+    //     dices: [null, null],
+    //     playerTurn: 0,
+    //     winner: false,
 
-        players: [
-            {
-                currentScore: 0,
-                totalScore: 0
-            },
-            {
-                currentScore: 0,
-                totalScore: 0
-            }
-        ]
-    };
+    //     players: [
+    //         {
+    //             currentScore: 0,
+    //             totalScore: 0
+    //         },
+    //         {
+    //             currentScore: 0,
+    //             totalScore: 0
+    //         }
+    //     ]
+    // };
 
-    update = (name, input) => {
-        console.log(name, input)
-        this.setState({ ...this.state, [name]: input })
-    }
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.setState({ formVisable: false })
-        this.setState({ reviewVisable: true })
-    }
-    handleBack = () => {
-        this.setState({ formVisable: true })
-        this.setState({ reviewVisable: false })
+    // updateDice = (id, value) => {
+    //     console.log(this.state.dices)
+    //     if (id==1)
+    //     this.setState({ dices: [value, this.state.dices[1]] })
+    //     else
+    //     this.setState({ dices: [this.state.dices[0],value] })
+    //     console.log('Dice' , value , 'id' ,id)
+    //     console.log(this.state.dices)
 
-    }
-    handleSend = () => {
-        this.setState({ reviewVisable: false })
-        this.setState({ endMsg: true })
-    }
-
+    // }
+    
     render() {
 
         return (
-            <form
-                onSubmit={(e) => this.handleSubmit(e)}
-            >
-                <InputText
-                    name={fName.name}
-                    text={fName.text}
-                    input={this.state.fName}
-                    callBack={this.update}
+            <GameBord/>
 
-                />
-                <InputText
+            // <>
+            //     <Dice
+            //         callBack={this.updateDice}
+            //         id = {0}
+
+            //     />
+            //       <Dice
+            //         callBack={this.updateDice}
+            //         id = {1}
+
+            //     />
+                /* <InputText
                     name={lName.name}
                     text={lName.text}
                     input={this.state.lName}
@@ -88,11 +83,9 @@ class App extends React.Component {
                     input={this.state.fText}
                     callBack={this.update}
                 // row={fText.row}
-                // col={fText.col}   
-                />
-
-                <input type="submit" value="Continue" />
-            </form>
+                // col={fText.col}  
+                /> */
+            // </>
         );
 
     }

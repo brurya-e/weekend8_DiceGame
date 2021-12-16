@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import './index.css';
-import App from './compenet/11.3/App'
+import GameBord from './componenet/gameBord/gameBord'
+
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GameBord />
   </React.StrictMode>,
   document.getElementById('root')
 );

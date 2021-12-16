@@ -1,0 +1,36 @@
+button {
+    background: transparent;
+    padding: 7px 15px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #1b1717;
+    color: #1b1717;
+    border-radius: 30px;
+    margin: 5px;
+    height: max-content;
+    font-family: "Cormorant Unicase", serif;
+    font-weight: 600;
+  }
+  
+  button:hover,
+  button:active,
+  button:focus {
+    color: #810000;
+    cursor: pointer;
+    border: 1px solid #810000;
+    border-radius: 30px;
+  }
+  
+  i {
+    padding-right: 10px;
+  }
+  
+  @media (max-width: 830px) {
+    i {
+      padding-right: 1px;
+    }
+  
+    button {
+      margin: 2px;
+    }
+  }
